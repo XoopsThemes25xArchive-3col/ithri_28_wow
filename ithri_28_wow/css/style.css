@@ -1,0 +1,274 @@
+
+@import url("content.css");
+@import url("blocks.css");
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+/* --------- Layout --------- */
+html {
+	background:#141414 url("../img/background.jpg")  fixed;
+	margin-top:4px;
+	color:#fff;
+		
+}
+
+body {
+	font-family: Trebuchet MS,Arial,Helvetica,sans-serif;
+	font-size: 12px;   
+	line-height: normal;
+	width: 1000px;
+	margin: 0 auto;
+	
+	
+}
+
+}
+#xo-page {
+	padding-top: 8px;   background: transparent;
+    padding-bottom: 8px;	
+	
+}
+
+
+/* --------- Content module page --------- */
+#xo-content {
+  padding : 8px;
+  text-align : justify;
+  color:#fff;
+  /* margin:8px;*/
+  
+}
+
+
+
+
+/* --------- Header --------- */
+#xo-header {
+	
+	height: 200px;
+	background: url("../img/header.jpg") no-repeat;
+}
+
+#banner {
+	float:right;
+	padding-right:60px;
+	padding-top: 12px;
+	width:468px;
+	height:60px;
+}
+
+
+/* --- Logo --- */
+#xo-header img.logo {
+	float:	left; 
+	padding: 9px 33px 0 0;
+	padding-left:40px;
+	padding-top:40px;
+} 
+
+
+/* --------- Navigation menu --------- */
+
+#xo-navheader ul.nav{
+	width:660px;
+	height:28px;
+	padding:4px 0 0 4px;
+	float:right;
+	background: #000000 ;
+}
+#xo-navheader ul.nav li{
+	float:left;
+	margin:0 1px 0 0;
+	line-height:0;
+	font-size:0;
+	list-style-type: none;
+}
+#xo-navheader ul.nav li a{
+	display:block;
+	list-style-type: none;
+	background:url(../img/ac.png) 0 0 no-repeat;
+	width:90px;
+	height:28px;
+	font:bold 12px/30px Arial, Helvetica, sans-serif;
+	color:#FFA500;
+	background-color:inherit;
+	text-align:center;
+}
+#xo-navheader ul.nav li a:hover{
+	list-style-type: none;
+	background:url(../img/ac1.png) 0 0 no-repeat;
+	color:#000;
+	background-color:inherit;
+}
+
+#xo-navheader ul.nav li a.hover{
+	list-style-type: none;
+	background:url(../img/ac1.png) 0 0 no-repeat;
+	color:#fff;}
+
+#xo-navheader ul.nav li.noMargin{
+list-style-type: none;
+	margin:0;
+}
+
+
+
+
+/*--- Top Blocks ---*/
+#xo-top-shadow {
+	height: 10px;
+	
+}
+
+/*Search*/
+#xo-search
+{
+	color:#FFFFFF;
+	background-color: #000000;
+	
+	height: 28px;
+	padding: 0;
+	margin: 0 0px;
+	padding-left:30px;
+	padding-top:4px
+	
+	
+	
+}
+
+
+	
+/*============== Styles pour l'include userbar.html =================*/
+
+
+
+.xo-userbar form {
+	display:							inline;
+	padding:							0px;
+}
+.xo-userbar button {
+	margin: 							-8px -3px;
+	border:							0px none;
+	padding:							0px;
+	background:						transparent none;
+}
+
+.xo-userbar img {
+	width: 							26px;
+	height: 						26px;
+}
+.xo-userbar input {
+	color: 							#333;
+	font-size: 						1.2em;
+	background-color: 			inherit;
+}
+
+.xo-userbar a {
+	color: 							#FF4500;
+	text-decoration: 				none;
+	background-color: 			inherit;
+	font-weight:					bold;
+}
+
+
+
+.xo-userbar{
+	height: 30px;
+	margin-top:30px;
+	float:right;
+	position:relative;
+}
+
+
+
+
+
+/* block main menu */
+#mainmenu {	font-size: 1.1em;}
+#mainmenu a {
+  display: block;
+  margin: 0;
+  padding: 4px 4px 4px 18px;
+  border-bottom: 1px solid #8B7E66;
+  font-weight:					bold;
+  
+}
+#mainmenu a:hover {background-color: #8B7E66; color:#000;}
+#mainmenu a.menuTop {}
+#mainmenu a.menuMain {}
+#mainmenu a.menuSub {
+  padding-left: 25px;
+  background: none;
+  border: none;
+  /*font-style: italic;*/
+  color:#333;
+  font-size: .9em;
+}
+#mainmenu a.menuSub:hover { background-color: #8B7E66; color:#000;}
+
+/* block user menu */
+#usermenu {	font-size: 1em; }
+#usermenu a {
+  display: block;
+  margin: 0;
+  padding: 4px 4px 4px 18px;
+  border-bottom: 1px solid #8B7E66;
+  color:#FFA500;
+}
+#usermenu a:hover {background-color: #8B7E66; color:#000;}
+#usermenu a.menuTop {}
+#usermenu a.highlight {background-color: #8B7E66;}
+
+
+/* --------- Footer --------- */
+#xo-footer {  
+	
+	background-color: transparent;
+	background: url("../img/footer.jpg") no-repeat center bottom;
+	width: 1000px;
+	height:42px;
+	margin:0 auto;
+	border-top: 2px solid #3a3a3a;
+	
+	
+}
+
+
+.xo-foottext{
+	color: #fff;
+	vertical-align: middle;
+	text-align: center;	
+	padding-top:2px;
+}
+.xo-foottext a{
+	color: #fff;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+.xo-foottext a:hover{
+	color: #FFFF00;
+	text-decoration: underline;
+}
+
+
+.rss { float: right; padding: 0px 4px 0 20px;}
+
+/*======= Tinymce background textarea ========*/
+body.mceContentBody {
+    margin:                 0;
+    padding:                0;
+    background-color:       #fff;
+    background-image:       none;
+    color:                  #000;
+}
+
+
+
+
+
+
+
+

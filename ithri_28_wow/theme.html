@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<{$xoops_langcode}>" lang="<{$xoops_langcode}>">
+<head>
+  <{assign var=theme_name value=$xoTheme->folderName}>	
+  <{assign var=theme_name value=$xoTheme->folderName|cat:'/xotpl'}>
+    	
+ 
+  
+  <!-- Title and meta -->
+
+    <!-- Title and meta -->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <meta http-equiv="content-language" content="<{$xoops_langcode}>" />
+    <meta http-equiv="content-type" content="text/html; charset=<{$xoops_charset}>" />
+    <title><{if $xoops_pagetitle !=''}><{$xoops_pagetitle}> - <{/if}><{$xoops_sitename}></title>
+    <meta name="robots" content="<{$xoops_meta_robots}>" />
+    <meta name="keywords" content="<{$xoops_meta_keywords}>" />
+    <meta name="description" content="<{$xoops_meta_description}>" />
+    <meta name="rating" content="<{$xoops_meta_rating}>" />
+    <meta name="author" content="<{$xoops_meta_author}>" />
+    <meta name="copyright" content="<{$xoops_meta_copyright}>" />
+    <meta name="generator" content="XOOPS" />
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<{xoAppUrl backend.php}>" />
+	<link rel="shortcut icon" type="image/ico" href="<{xoImgUrl icons/favicon.ico}>" />
+	<link rel="icon" type="image/png" href="<{xoImgUrl icons/icon.png}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoAppUrl xoops.css}>" />
+	<link rel="stylesheet" type="text/css" media="all" title="Style sheet" href="<{xoImgUrl css/style.css}>" />
+    <{$xoops_module_header}>
+</head>
+
+
+<body id="<{$xoops_dirname}>" class="<{$xoops_langcode}>">
+
+
+	  
+	  <!-- Start header -->
+	  
+		<div id="xo-header" class="<{$xoops_dirname}>">
+		<div id="banner">&nbsp;
+		
+		
+		<!--User bar-->
+	<div class="xo-userbar">
+		<{if !$xoops_isuser}>
+			<!-- menu en mode anonyme -->
+			<form method="post" action="<{xoAppUrl /user.php op=login}>">
+				<{$smarty.const._LOGIN}>&nbsp;
+				<input name="uname" type="text" size="12" value="Pseudo"  />&nbsp;&nbsp;<input name="pass" type="password" size="12"/>
+				<input type="hidden" name="xoops_redirect" value="<{$smarty.server.REQUEST_URI}>" />
+				<button type="submit"><img src="<{xoImgUrl /img/home.png}>" alt="<{$smarty.const._LOGIN}>" /></button>
+			</form>&nbsp;&nbsp;
+			<a href="<{xoAppUrl /register.php}>" class="register">S'enregistrer</a>
+		<{else}>
+		<!-- menu en mode enregistré -->
+		    <{xoInboxCount assign=pmcount}>
+			<a href="<{xoAppUrl www/viewpmsg.php}>">
+			<!-- pour ma messagerie -->
+			<{if $pmcount}><!-- si j'ai des messages --><img src="<{xoImgUrl img/inbox-full.png}>" alt="(<{$pmcount}>) Messages" title="Vous avez <{$pmcount}> messages non lues" />
+			<{else}>
+			<!-- si je n'ai pas de message -->
+			<img src="<{xoImgUrl img/inbox.png}>" alt="Boîte de réception" title="Voir sa boîte de réception" /><{/if}></a>
+			<!-- fin de ma messagerie -->
+			<a href="<{xoAppUrl /notifications.php}>"><img src="<{xoImgUrl img/note_view.png}>" alt="Notifications" title="Voir ses notifications" /></a>				
+			<a href="<{xoAppUrl /user.php}>"><img src="<{xoImgUrl img/profile.png}>" alt="Mon profil" title="Voir son profil" /></a>
+			<a href="<{xoAppUrl /search.php}>"><img src="<{xoImgUrl img/find.png}>" alt="Rechercher sur le site" title="Rechercher sur le site" /></a>
+			<{if $xoops_isadmin}>
+			<!-- lien supplémentaire si j'ai des droits d'administration de module -->
+			<a href="<{xoAppUrl /admin.php}>"><img src="<{xoImgUrl img/configuration.png}>" alt="Administration" title="Afficher la zone d'administration" /></a>
+			<!-- fin du lien supplémentaire -->
+			<{/if}>
+			<a href="<{xoAppUrl /user.php op=logout}>"><img src="<{xoImgUrl img/exit.png}>" alt="Déconnexion" title="Cliquez pour vous déconnecter" /></a>
+		<{/if}>
+		</div>
+		
+		</div>
+
+	<!-- Logo -->
+	
+		
+ <a href="<{xoAppUrl }>">
+	 <img src="<{xoImgUrl img/logo.png}>" class="logo" alt="<{$xoops_pagetitle}>" title="<{$xoops_pagetitle}>" /></a> 
+	</div>
+	
+	  <!-- End header -->
+ 
+		<div id="xo-navheader">
+
+					<ul class="nav">
+						<li> <{php}> if ( '/index.php' == $_SERVER["PHP_SELF"] ) { echo 
+						'<a href="'.XOOPS_URL.'"  accesskey="a" title="Accueil">Accueil</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'" accesskey="a" title="Accueil">Accueil</a>'; 
+						} <{/php}> </li>
+					  
+						<li> <{php}> if (eregi ('/modules/news/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/news/" class="hover" accesskey="n" title="Articles">Articles</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/news/" accesskey="n" title="Articles">Articles</a>'; 
+						} <{/php}> </li>
+					  
+						<li> <{php}> if (eregi ('/modules/smartfaq/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/smartfaq/" class="hover" accesskey="s" title="F.a.q">F.a.q</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/smartfaq/" accesskey="s" title="F.a.q">F.a.q</a>'; 
+						} <{/php}> </li>	
+						
+						<li> <{php}> if (eregi ('/modules/eazydld/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/eazydld/" class="hover" accesskey="r" title="Modules">Télécharger</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/eazydld/" accesskey="r" title="Modules">Télécharger</a>'; 
+						} <{/php}> </li>
+					  
+						<li> <{php}> if (eregi ('/modules/news/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/news/index.php?storytopic=5/" class="hover" accesskey="t" title="Themes">Themes</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/news/index.php?storytopic=5/" accesskey="t" title="Themes">Themes</a>'; 
+						} <{/php}> </li>
+						
+						<li> <{php}> if (eregi ('/modules/Sitemap/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/Sitemap/" class="hover" accesskey="t" title="Themes">Sitemap</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/sitemap/" accesskey="t" title="Plan du site">Sitemap</a>'; 
+						} <{/php}> </li>
+
+						<li> <{php}> if (eregi ('/modules/contact/',$_SERVER['REQUEST_URI'])) { echo 
+						'<a href="'.XOOPS_URL.'/modules/contact/" class="hover" accesskey="t" title="Nous contacter">Contact</a>'; 
+						} else { echo '<a href="'.XOOPS_URL.'/modules/contact/" accesskey="t" title="Nous contacter">Contact</a>'; 
+						} <{/php}> </li>							
+					</ul>
+		</div>
+			
+		<!--Start Search-->
+			<div id="xo-search">
+				<form action="<{xoAppUrl search.php}>" method="post">
+					<input type="hidden" name="action" value="results" />
+				    <input name="query"  maxlength="20" alt="Recherche" class="inputbox" type="text" size="15" value="recherche..."  onblur="if(this.value=='') this.value='recherche...';" onfocus="if(this.value=='recherche...') this.value='';" />	<input type="submit" value="Trouver" />
+				</form>
+			</div>
+		<!--End Search-->
+		
+		
+
+
+
+
+  <!-- End header -->
+	
+	  
+  <table  cellspacing="0">
+ 
+    <tr>    
+		  <!-- Start left blocks loop -->
+		  <{if $xoops_showlblock}>
+		  
+			  <td id="xo-canvas-leftcolumn">
+				  <{foreach item=block from=$xoBlocks.canvas_left}>
+					<{includeq file="$theme_name/blockleft.html"}>
+					<{/foreach}>         
+				</td>
+		  <{/if}>
+		 <!-- End left blocks loop -->
+
+
+    <td id="xo-page">     
+		  <!-- Start center top blocks loop -->
+		  <{if $xoBlocks.page_topleft or $xoBlocks.page_topcenter or $xoBlocks.page_topright}>
+		  <table id="xo-topblocks" cellspacing="0">
+		    <!-- Top center blocks -->
+			  <tr>
+				  <td id="xo-topcenterblocks" colspan="2">
+					  <{foreach item=block from=$xoBlocks.page_topcenter}>
+					  <{includeq file="$theme_name/blockcenter_c.html"}>
+					  <{/foreach}>
+					</td>
+			  </tr>
+			  <!-- Top left blocks -->
+		  	<tr>
+					<td id="xo-topleftblocks">
+					  <{foreach item=block from=$xoBlocks.page_topleft}>
+					  <{includeq file="$theme_name/blockcenter_l.html"}>
+					  <{/foreach}>
+					</td>
+				<!-- Top right blocks -->	
+				  <td id="xo-toprightblocks">
+					  <{foreach item=block from=$xoBlocks.page_topright}>
+					  <{includeq file="$theme_name/blockcenter_r.html"}>
+					  <{/foreach}>
+			   </td>
+			 </tr>
+		 </table>
+		 <{/if}>
+		 <!-- End center top blocks loop -->
+
+		 <!-- Start content module page -->
+     <div id="xo-content"><{$xoops_contents}></div>
+		 <!-- End content module -->
+	
+	   <!-- Start center bottom blocks loop -->
+     <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright or $xoBlocks.page_bottomcenter}>
+		 <table id="xo-bottomblocks" cellspacing="0">
+		  <!-- Bottom center blocks -->	
+		  <{if $xoBlocks.page_bottomcenter}>
+		  <tr>
+			  <td id="xo-bottomcenterblocks" colspan="2">
+				<{foreach from=$xoBlocks.page_bottomcenter item=block}>
+				<{include file="$theme_name/blockcenter_c.html"}><{/foreach}>
+				</td>
+		  </tr>
+		  <{/if}>
+		  <!-- Bottom left blocks -->	
+		  <{if $xoBlocks.page_bottomleft or $xoBlocks.page_bottomright}>
+		  <tr>
+			  <td id="xo-bottomleftblocks">
+				<{foreach from=$xoBlocks.page_bottomleft item=block}>
+				<{include file="$theme_name/blockcenter_l.html"}>
+				<{/foreach}>
+				</td>
+				<!-- Bottom right blocks -->	
+				<td id="xo-bottomrightblocks">
+				<{foreach from=$xoBlocks.page_bottomright item=block}>
+				<{include file="$theme_name/blockcenter_r.html"}>
+				<{/foreach}>
+				</td>
+		  </tr>
+		  <{/if}>
+		 </table>
+		 <{/if}>
+		 <!-- End center bottom blocks loop -->
+    </td>
+
+      <!-- Start right blocks loop -->
+		  <{if $xoops_showrblock}>
+		  <td id="xo-canvas-rightcolumn">
+        <{foreach item=block from=$xoBlocks.canvas_right}>
+        <{includeq file="$theme_name/blockright.html"}>
+        <{/foreach}>
+		  </td>
+		  <{/if}>
+    <!-- End right blocks loop -->
+	
+
+ 
+    </tr>
+  </table>
+  
+  <!-- Start footer -->
+ <div id="xo-footer">
+			<table cellspacing="0" cellpadding="0" >									
+						<td class="xo-foottext">
+						<nobr><a href="<{xoAppUrl}>">Acceuil</a></nobr> | 
+						<nobr><a href="<{$xoops_url}>/modules/news" accesskey="0">Articles</a></nobr> | 
+						<nobr><a href="<{$xoops_url}>/modules/extgallery">Album photo</a></nobr> | 
+						<nobr><a href="<{$xoops_url}>/modules/eazydld">Downloads</a></nobr> | 
+						<nobr><a href="<{$xoops_url}>/modules/sitemap">Plan du site</a></nobr>  
+						
+		<br/>
+		<div class="rss"><a href="<{xoAppUrl /backend.php}>"><img src="<{xoImgUrl img/feed.png}>" alt="Prendre le fil RSS" /></a></div>
+		<{$xoops_footer}>
+				
+</div>														
+			</table>
+  <!-- end Footer -->
+ 
+</body>
+</html>
